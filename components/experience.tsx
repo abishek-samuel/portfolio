@@ -97,7 +97,7 @@ export default function Experience() {
                         <p className="font-semibold tracking-wide">{exp.company}</p>
                     </div>
                   </div>
-                  <span className="text-slate-400 text-sm font-mono py-1 px-3 rounded-full border ">{exp.period}</span>
+                  <span className="text-slate-400 text-sm font-mono py-1 px-3">{exp.period}</span>
                 </div>
 
                 <p className="text-slate-300 mb-6 leading-relaxed border-l-2 border-white/10 pl-4 italic">

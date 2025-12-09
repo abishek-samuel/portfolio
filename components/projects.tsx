@@ -12,7 +12,7 @@ export default function Projects() {
     {
       title: "AI-Powered Talent Platform",
       description: "Intelligent recruitment system using RAG and LLMs to automate candidate processing",
-      tags: ["Python", "Ollama", "pgvector", "RAG"],
+      tags: ["React", "Node.js", "Express", "Postgres", "LLM", "VectorDB", "Semantic Search"],
       image: "bg-gradient-to-br from-violet-500/20 to-purple-500/20",
       subtitle: "AI & Retrieval-Augmented Generation",
       images: [
@@ -27,55 +27,71 @@ export default function Projects() {
       // demo: "#",
     },
     {
-      title: "Enterprise Big Data Interface",
-      description: "Distributed system bridging legacy Hadoop clusters with modern web applications",
-      tags: ["Java", "Node.js", "RabbitMQ", "Hadoop"],
-      image: "bg-gradient-to-br from-cyan-500/20 to-blue-500/20",
-      subtitle: "Distributed Systems & Messaging",
+      title: "IoT Predictive Maintenance System",
+      description: "End-to-end anomaly detection pipeline integrating Big Data with Machine Learning",
+      tags: ["Node.js", "Python", "Hadoop", "React", "Microservices"],
+      image: "bg-gradient-to-br from-orange-500/20 to-red-500/20",
+      subtitle: "ML Integration & Data Pipeline",
       images: [
-        "bg-gradient-to-br from-cyan-500/20 to-blue-500/20",
-        "bg-gradient-to-br from-cyan-600/20 to-blue-600/20",
+        "/images/iot-architecture.png", 
+        "/images/anomaly-dashboard.png",    
       ],
-      challenges:
-        "Decoupling data retrieval from user requests to prevent bottlenecks when querying massive Impala datasets.",
-      solution:
-        "Implemented RabbitMQ for asynchronous message queuing, allowing the Node.js frontend to offload heavy queries to Java consumers.",
-      // github: "#",
-      // demo: "#",
+      challenges: (
+        <>
+          The client needed to detect equipment failures before they happened. The challenge was bridging the gap between massive, static datasets in <strong className="text-white">Hadoop</strong> and real-time <strong className="text-white">ML Anomaly Detection</strong>.
+        </>
+      ),
+      solution: (
+        <>
+          Architected a <strong>Node.js Interface Service</strong> that fetches raw sensor data from Hadoop and streams it to a <strong className="text-cyan-400">Python Microservice</strong> for pattern analysis. 
+          Detected anomalies are stored and pushed to a <strong className="text-violet-400">React Dashboard</strong> for real-time monitoring, enabling proactive maintenance.
+        </>
+      ),
     },
     {
-      title: "Workforce Analytics Engine",
-      description: "High-performance backend processing thousands of weekly headcount records",
-      tags: ["Node.js", "PostgreSQL", "K6", "Redis"],
-      image: "bg-gradient-to-br from-pink-500/20 to-rose-500/20",
-      subtitle: "Scalable Data Processing",
+      title: "EazyTime – Enterprise Timesheet System",
+      description: "Scalable workforce management platform with hierarchical analytics and role-based security",
+      tags: ["Node.js", "React", "MySQL", "Keycloak", "Redis"],
+      image: "bg-gradient-to-br from-blue-500/20 to-indigo-500/20", // Update with real image path later
+      subtitle: "Performance Optimization & RBAC",
       images: [
-        "bg-gradient-to-br from-pink-500/20 to-rose-500/20",
-        "bg-gradient-to-br from-pink-600/20 to-rose-600/20",
+        "/images/eazytime-dashboard.png", 
+        "/images/rbac-architecture.png",    
       ],
-      challenges:
-        "Handling concurrent write operations and generating complex analytical reports without impacting read performance.",
-      solution:
-        "Optimized PostgreSQL queries for aggregation and implemented concurrent caching strategies to reduce database load.",
-      // github: "#",
-      // demo: "#",
+      challenges: (
+        <>
+          Generating real-time analytics for <strong className="text-white">high-volume timesheet data</strong> caused latency issues. Additionally, managing granular permissions across 4 distinct roles (Admin, Manager, Supervisor, Member) required complex security logic.
+        </>
+      ),
+      solution: (
+        <>
+          Architected a high-performance backend using <strong className="text-cyan-400">Node.js Clustering</strong> to maximize multi-core utilization and implemented a <strong className="text-violet-400">Caching Layer</strong> for instant dashboard loading. 
+          Secured the system with <strong className="text-cyan-400">Keycloak SSO</strong>, enforcing strict Role-Based Access Control (RBAC) for data isolation.
+        </>
+      ),
     },
     {
-      title: "Secure Identity & DevOps Suite",
-      description: "Centralized authentication infrastructure and automated CI/CD pipelines",
-      tags: ["Keycloak", "Docker", "Jenkins", "Security"],
+      title: "CI Automation Suite",
+      description: "Streamlined Continuous Integration pipeline ensuring code quality and rapid feedback",
+      tags: ["Jenkins", "Docker", "Gitea", "SonarQube", "Jest"],
       image: "bg-gradient-to-br from-emerald-500/20 to-teal-500/20",
-      subtitle: "Infrastructure & Security",
+      subtitle: "Build Automation & Quality Gates",
       images: [
-        "bg-gradient-to-br from-emerald-500/20 to-teal-500/20",
-        "bg-gradient-to-br from-emerald-600/20 to-teal-600/20",
+        "/images/ci-architecture.png", 
+        "/images/jenkins-workflow.png",    
       ],
-      challenges:
-        "Eliminating security silos across multiple applications and reducing manual deployment errors.",
-      solution:
-        "Deployed Keycloak for unified SSO (reducing auth failures by 70%) and built containerized Jenkins pipelines for automated delivery.",
-      // github: "#",
-      // demo: "#",
+      challenges: (
+        <>
+          Development velocity was slow by <strong>manual testing workflows</strong> and lack of centralized code quality enforcement, leading to <span className="text-white">slow feedback loops</span>.
+        </>
+      ),
+      solution: (
+        <>
+          Architected an event-driven CI pipeline using <strong className="text-cyan-400">Jenkins</strong> and <strong className="text-cyan-400">Gitea</strong>. 
+          The workflow automates the entire build lifecycle—executing <strong className="text-violet-400">Jest</strong> unit tests, enforcing <strong className="text-violet-400">SonarQube</strong> quality gates, 
+          and containerizing artifacts with <strong className="text-cyan-400">Docker</strong>—reducing integration time by <span className="text-white font-bold">60%</span> while triggering automated email alerts.
+        </>
+      ),
     },
   ]
 

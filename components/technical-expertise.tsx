@@ -29,13 +29,13 @@ export default function TechnicalExpertise() {
       title: "Backend & Architecture",
       icon: Database,
       color: "violet",
-      skills: ["Node.js", "Express.js", "Python (Flask)", "Java", "Microservices", "RabbitMQ", "REST APIs"],
+      skills: ["Node.js", "Express.js", "Python (Flask)", "Java", "Microservices", "RabbitMQ", "REST APIs", "Websocket"],
     },
     {
       title: "Databases & Caching",
       icon: Zap,
       color: "cyan",
-      skills: ["PostgreSQL", "MySQL", "Redis", "pgvector"],
+      skills: ["PostgreSQL", "MySQL", "Redis", "pgvector", "MongoDB"],
     },
     {
       title: "Cloud & DevOps",
@@ -47,7 +47,7 @@ export default function TechnicalExpertise() {
       title: "Frontend",
       icon: Code2,
       color: "blue",
-      skills: ["React.js", "Tailwind CSS", "Bootstrap"],
+      skills: ["React.js", "Tailwind CSS", "Bootstrap", "HTML", "CSS", "Javascript"],
     },
     {
       title: "Security",

@@ -110,8 +110,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             )}
           </div>
 
-          {/* Details Grid */}
-          <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-violet-500/20 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
                 🚧 Challenges
@@ -124,7 +122,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </h3>
               <p className="text-slate-300 leading-relaxed text-sm">{project.solution}</p>
             </div>
-          </div>
 
           {/* Tags */}
           <div>
