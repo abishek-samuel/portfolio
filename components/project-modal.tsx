@@ -14,6 +14,7 @@ interface ProjectModalProps {
     github?: string
     demo?: string
     tags: string[]
+    description: string
   }
   onClose: () => void
 }
@@ -84,16 +85,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="space-y-4">
             <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-white/10 bg-slate-900 group">
               {/* Fallback visualization */}
-              <div className={`absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800 ${project.images[selectedImageIndex]}`} />
-              <div className="absolute inset-0 flex items-center justify-center text-white/10 text-lg font-mono">
-                [ {project.title} - View {selectedImageIndex + 1} ]
-              </div>
+              <img 
+                src={project.images[selectedImageIndex]} 
+                alt={`${project.title} preview`} 
+                className="w-full h-full object-cover object-top" 
+              />
             </div>
 
             {/* Thumbnails */}
             {project.images.length > 1 && (
               <div className="flex gap-3 overflow-x-auto pb-2 custom-scrollbar">
-                {project.images.map((_, index) => (
+                {project.images.map((imgSrc, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedImageIndex(index)}
@@ -103,13 +105,25 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                         : "border-white/10 opacity-60 hover:opacity-100 hover:border-white/30"
                     }`}
                   >
-                    <div className="h-full w-full bg-slate-800" />
+                    <img 
+                      src={imgSrc} 
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
                   </button>
                 ))}
               </div>
             )}
           </div>
-
+              {/* --- Description with Heading --- */}
+            <div className="bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                📝 Description
+              </h3>
+              <p className="text-slate-300 leading-relaxed text-sm">
+                {project.description}
+              </p>
+            </div>
             <div className="bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-violet-500/20 transition-colors">
               <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
                 🚧 Challenges

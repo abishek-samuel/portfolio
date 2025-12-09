@@ -10,14 +10,37 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Learning Labs – AI Learning Platform",
+      description: "Next-gen LMS capable of generating course content and quizzes automatically using LLMs",
+      tags: ["React", "Node.js", "Python", "Postgres", "LLM", "Tailwind CSS"],
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3", // Update with real image path
+      subtitle: "EdTech & AI Automation",
+      images: [
+        "/images/llm.jpg", 
+        "/images/content-generation-flow.png",    
+      ],
+      challenges: (
+        <>
+          Traditional LMS platforms require manual content creation, which is time-consuming. The challenge was to integrate <strong className="text-white">Generative AI</strong> to automatically create high-quality MCQs and course summaries based on raw topic inputs.
+        </>
+      ),
+      solution: (
+        <>
+          Built a hybrid architecture with a <strong className="text-cyan-400">Node.js</strong> backend for user management and course delivery, coupled with a <strong className="text-violet-400">Python AI Service</strong> that leverages LLMs to generate quizzes and analyze learner performance in real-time.
+        </>
+      ),
+      // github: "https://github.com/yourusername/learning-labs", // Add link if public
+      // demo: "https://learning-labs-demo.com",
+    },
+    {
       title: "AI-Powered Talent Platform",
       description: "Intelligent recruitment system using RAG and LLMs to automate candidate processing",
       tags: ["React", "Node.js", "Express", "Postgres", "LLM", "VectorDB", "Semantic Search"],
-      image: "bg-gradient-to-br from-violet-500/20 to-purple-500/20",
+      image: "/images/HRApp-th.png",
       subtitle: "AI & Retrieval-Augmented Generation",
       images: [
-        "bg-gradient-to-br from-violet-500/20 to-purple-500/20",
-        "bg-gradient-to-br from-violet-600/20 to-purple-600/20",
+        "/images/HRApp.png",
+        "/images/HRApp-arc.png",
       ],
       challenges:
         "Processing large volumes of candidate data with high accuracy while maintaining low latency for semantic searches.",
@@ -30,11 +53,10 @@ export default function Projects() {
       title: "IoT Predictive Maintenance System",
       description: "End-to-end anomaly detection pipeline integrating Big Data with Machine Learning",
       tags: ["Node.js", "Python", "Hadoop", "React", "Microservices"],
-      image: "bg-gradient-to-br from-orange-500/20 to-red-500/20",
+      image: "/images/bosch5.png",
       subtitle: "ML Integration & Data Pipeline",
       images: [
-        "/images/iot-architecture.png", 
-        "/images/anomaly-dashboard.png",    
+        "/images/bosch.png", 
       ],
       challenges: (
         <>
@@ -52,11 +74,10 @@ export default function Projects() {
       title: "EazyTime – Enterprise Timesheet System",
       description: "Scalable workforce management platform with hierarchical analytics and role-based security",
       tags: ["Node.js", "React", "MySQL", "Keycloak", "Redis"],
-      image: "bg-gradient-to-br from-blue-500/20 to-indigo-500/20", // Update with real image path later
+      image: "/images/easytime-th.png", // Update with real image path later
       subtitle: "Performance Optimization & RBAC",
       images: [
-        "/images/eazytime-dashboard.png", 
-        "/images/rbac-architecture.png",    
+        "/images/easytime-pc.png", 
       ],
       challenges: (
         <>
@@ -74,11 +95,11 @@ export default function Projects() {
       title: "CI Automation Suite",
       description: "Streamlined Continuous Integration pipeline ensuring code quality and rapid feedback",
       tags: ["Jenkins", "Docker", "Gitea", "SonarQube", "Jest"],
-      image: "bg-gradient-to-br from-emerald-500/20 to-teal-500/20",
+      image: "/images/ci-th.png",
       subtitle: "Build Automation & Quality Gates",
       images: [
-        "/images/ci-architecture.png", 
-        "/images/jenkins-workflow.png",    
+        "/images/ci-th.png",
+        "/images/ci-pipeline.png",    
       ],
       challenges: (
         <>
@@ -144,12 +165,22 @@ export default function Projects() {
               onClick={() => setSelectedProject(i)}
               className="group glass rounded-3xl overflow-hidden hover:border-cyan-400 transition-all duration-300 cursor-pointer"
             >
-              {/* Image */}
-              <div className={`h-48 ${project.image} relative overflow-hidden`}>
-                <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  whileHover={{ scale: 1.05 }}
-                />
+              {/* Image Thumbnail */}
+              <div className="h-48 relative overflow-hidden bg-slate-900 border-b border-white/10">
+                {/* Check if we have an image, otherwise fallback to a gradient */}
+                {project.images && project.images.length > 0 && !project.images[0].startsWith('bg-') ? (
+                  <img
+                    src={project.image} // Use the first image as the cover
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  // Fallback for projects that still use CSS gradients (like the top one)
+                  <div className={`w-full h-full ${project.image || 'bg-slate-800'}`} />
+                )}
+                
+                {/* Dark Overlay on Hover */}
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
               {/* Content */}
