@@ -121,20 +121,22 @@ export default function TechnicalExpertise() {
                 <motion.div
                   key={index}
                   variants={cardVariants}
-                  className="glass p-6 rounded-2xl border border-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-white/10 transition-all duration-300 flex items-center gap-6"
+                  className="glass p-6 rounded-2xl border border-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-white/10 transition-all duration-300 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6"
                 >
-                  {/* Icon */}
+                  {/* Icon Wrapper - Hidden on mobile if you want to save space, but kept here for consistency */}
                   <div className={`p-3 rounded-lg bg-gradient-to-br ${colors.bg} flex-shrink-0`}>
                     <IconComponent size={24} className={colors.icon} />
                   </div>
 
-                  {/* Category Title - 20% width */}
-                  <div className="w-1/5 flex-shrink-0">
+                  {/* Category Title */}
+                  {/* CHANGE 2: Changed width from fixed w-1/5 to w-full on mobile, back to w-1/5 on desktop */}
+                  <div className="w-full md:w-1/5 flex-shrink-0">
                     <h3 className="text-lg font-bold text-white whitespace-normal">{card.title}</h3>
                   </div>
 
-                  {/* Skills Pills - Remaining width with flex-wrap */}
-                  <div className="flex flex-wrap gap-2 flex-1">
+                  {/* Skills Pills */}
+                  {/* CHANGE 3: Skills will now naturally wrap under the title on mobile */}
+                  <div className="flex flex-wrap gap-2 flex-1 w-full md:w-auto">
                     {card.skills.map((skill) => (
                       <motion.span
                         key={skill}
