@@ -85,7 +85,7 @@ export default function Hero() {
           */}
           <a 
             href="/resume.pdf" 
-            download="Abishek_Samuel_Resume.pdf"
+            download="Abishek-resume.pdf"
             className="group px-8 py-4 rounded-full font-semibold text-slate-300 border border-white/10 hover:border-cyan-400/50 hover:text-white hover:bg-white/5 transition-all duration-300 backdrop-blur-md flex items-center gap-2 cursor-pointer"
           >
             <Download size={18} />
