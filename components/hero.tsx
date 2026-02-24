@@ -83,9 +83,17 @@ export default function Hero() {
           {/* Button 2: Downloads Resume 
               Ensure 'resume.pdf' is inside your 'public' folder 
           */}
-          <a 
-            href="/resume.pdf" 
-            download="Abishek-resume.pdf"
+          <a
+            href="/resume.pdf"
+            onClick={(e) => {
+              e.preventDefault();
+              const link = document.createElement("a");
+              link.href = "/resume.pdf";
+              link.download = "Abishek_Samuel_SDE2_Backend.pdf";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
             className="group px-8 py-4 rounded-full font-semibold text-slate-300 border border-white/10 hover:border-cyan-400/50 hover:text-white hover:bg-white/5 transition-all duration-300 backdrop-blur-md flex items-center gap-2 cursor-pointer"
           >
             <Download size={18} />
